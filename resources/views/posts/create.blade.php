@@ -21,6 +21,7 @@
           @endforeach
         </select>
       </div>
+
     <button type="submit" class="btn btn-success">Create Post</button>
   </form>
 

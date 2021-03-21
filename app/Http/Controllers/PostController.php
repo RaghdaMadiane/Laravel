@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 
+
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $allPosts = Post::all();
+        $allPosts = Post::paginate(9);
 
         return view('posts.index', [
             'posts' => $allPosts
@@ -60,8 +61,11 @@ class PostController extends Controller
         Post::create($requestData);
         return redirect()->route('posts.index');
     }
-    public function destroy()
+    public function destroy($postId)
     {
+        $post = Post::findorfail($postId);
+
+        $post->delete();
         return redirect()->route('posts.index');
     }
 }
