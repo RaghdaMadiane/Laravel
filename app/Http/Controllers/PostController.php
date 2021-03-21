@@ -33,20 +33,34 @@ class PostController extends Controller
             'users' => User::all()
         ]);
     }
-    public function edit()
+    public function edit($postId)
     {
-        $post = ['id' => 1, 'title' => 'laravel', 'description' => 'laravel is awsome framework', 'posted_by' => 'Ahmed', 'created_at' => '2021-03-20','email'=> 'ahmed@gmail.com'];
-
+        $post = Post::find($postId);
         return view('posts.edit', [
-            'post'=>$post,
+            'post' => $post,
+            'users' => User::all()
         ]);
     }
-    public function update($postId)
+    public function update($postId, Request $request)
     {
+        $requestData= $request->all();
+
+        $post = Post::find($postId);
+
+        $post->update($requestData);
+
+
+        $post->save();
         return redirect()->route('posts.index');
     }
 
-    public function store()
+    public function store(Request $request)
+    {
+        $requestData= $request->all();
+        Post::create($requestData);
+        return redirect()->route('posts.index');
+    }
+    public function destroy()
     {
         return redirect()->route('posts.index');
     }

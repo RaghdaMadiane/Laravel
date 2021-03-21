@@ -23,7 +23,7 @@
       <h5 class="card-title">Name:</h5>
       <p class="card-text">{{ $post->user ? $post->user->name : 'user not found' }}</p>
       <h5 class="card-title">Email:</h5>
-      <p class="card-text">{{ $post->email}}</p>
+      <p class="card-text">{{ $post->user ? $post->user->email : 'email not found' }}</p>
       <h5 class="card-title">Created At:</h5>
       <p class="card-text">{{ $post->created_at }}</p>
     </div>

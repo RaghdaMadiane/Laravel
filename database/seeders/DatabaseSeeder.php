@@ -1,18 +1,37 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Factories;
 
-use Illuminate\Database\Seeder;
+use App\Models\Post;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
-class DatabaseSeeder extends Seeder
+class PostFactory extends Factory
 {
     /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
+    * The name of the factory's corresponding model.
+    *
+    * @var string
+    */
+    protected $model = Post::class;
+
+    /**
+    * Define the model's default state.
+    *
+    * @return array
+    */
+    public function definition()
+    {
+        return [
+       'title' => Str::random(10),
+      'description' => Str::random(30),
+      'user_id' => 1,
+
+ ];
+    }
+
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\Post::factory(500)->create();
     }
 }

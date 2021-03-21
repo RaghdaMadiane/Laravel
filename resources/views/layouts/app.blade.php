@@ -9,13 +9,24 @@
 
 </head>
 <body>
+
     <nav class="navbar navbar-dark bg-dark">
         <a href="{{route('posts.index')}}" class="navbar-brand mb-0 h1">All Posts</a>
       </nav>
 
         <div class="container" style="margin-top:40px;">
             @yield('content')
+            {{-- <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item"><a class="page-link" href="{{$posts->links("pagination::bootstrap-4")}}">Previous</a></li>
+                  <li class="page-item"><a class="page-link" href="{{$posts->links("pagination::bootstrap-4")}}">1</a></li>
+                  <li class="page-item"><a class="page-link" href="{{$posts->links("pagination::bootstrap-4")}}">2</a></li>
+                  <li class="page-item"><a class="page-link" href="{{$posts->links("pagination::bootstrap-4")}}">3</a></li>
+                  <li class="page-item"><a class="page-link" href="{{$posts->links("pagination::bootstrap-4")}}">Next</a></li>
+                </ul>
+              </nav> --}}
         </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
