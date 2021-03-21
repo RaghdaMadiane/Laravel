@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
+
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -18,8 +20,7 @@ class PostController extends Controller
 
     public function show($postId)
     {
-        $post = ['id' => 1, 'title' => 'laravel', 'description' => 'laravel is awsome framework', 'posted_by' => 'Ahmed', 'created_at' => '2021-03-20','email'=> 'ahmed@gmail.com'];
-
+        $post = Post::find($postId);
         return view('posts.show', [
             'post' => $post,
         ]);
@@ -27,7 +28,9 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('posts.create');
+        return view('posts.create', [
+            'users' => User::all()
+        ]);
     }
     public function edit()
     {

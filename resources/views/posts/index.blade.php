@@ -17,14 +17,14 @@
     <tbody>
     @foreach($posts as $post)
       <tr>
-        <th scope="row">{{ $post['id'] }}</th>
-        <td>{{ $post['title'] }}</td>
-        <td>{{ $post['posted_by'] }}</td>
-        <td>{{ $post['created_at'] }}</td>
+        <th scope="row">{{ $post->id }}</th>
+        <td>{{ $post->title }}</td>
+        <td>{{ $post->user ? $post->user->name : 'user not found' }}</td>
+        <td>{{ $post->created_at }}</td>
         <td>
-          <a href="{{ route('posts.show',['post' => $post['id']]) }}" class="btn btn-info" style="margin-bottom: 20px;">View</a>
-          <a href="{{ route('posts.edit',['post' => $post['id']])  }}" class="btn btn-primary" style="margin-bottom: 20px;">Edit</a>
-          {{-- <a href="{{ route('posts.delete',['post' => $post['id']])  }}" class="btn btn-danger" style="margin-bottom: 20px;">Delete</a> --}}
+          <a href="{{ route('posts.show',['post' => $post->id]) }}" class="btn btn-info" style="margin-bottom: 20px;">View</a>
+          <a href="{{ route('posts.edit',['post' => $post->id])  }}" class="btn btn-primary" style="margin-bottom: 20px;">Edit</a>
+          {{-- <a href="{{ route('posts.delete',['post' => $post->id])  }}" class="btn btn-danger" style="margin-bottom: 20px;">Delete</a> --}}
 
 
         </td>

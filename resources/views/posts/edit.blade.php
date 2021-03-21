@@ -3,7 +3,7 @@
 @section('title') edit Page @endsection
 
 @section('content')
-<form method="POST" action="{{route('posts.update',['post'=> $post['id']])}}">
+<form method="Post" action="{{route('posts.update',['post'=> $post['id']])}}">
     @csrf
     <input type="hidden" name="_method" value="PUT">
       <div class="form-group">
