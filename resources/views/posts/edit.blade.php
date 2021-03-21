@@ -3,9 +3,10 @@
 @section('title') edit Page @endsection
 
 @section('content')
-<form method="POST" action="{{route('posts.store')}}">
+<form method="POST" action="{{route('posts.update',['post'=> $post['id']])}}">
     @csrf
-    <div class="form-group">
+    <input type="hidden" name="_method" value="PUT">
+      <div class="form-group">
       <label for="title">Title</label>
       <input type="text" class="form-control" id="title" aria-describedby="emailHelp">
 

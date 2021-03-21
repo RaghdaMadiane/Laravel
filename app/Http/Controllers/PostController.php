@@ -34,9 +34,16 @@ class PostController extends Controller
     }
     public function edit()
     {
-        return view('posts.edit');
-    }
+        $post = ['id' => 1, 'title' => 'laravel', 'description' => 'laravel is awsome framework', 'posted_by' => 'Ahmed', 'created_at' => '2021-03-20','email'=> 'ahmed@gmail.com'];
 
+        return view('posts.edit', [
+            'post'=>$post,
+        ]);
+    }
+    public function update($postId)
+    {
+        return redirect()->route('posts.index');
+    }
 
     public function store()
     {

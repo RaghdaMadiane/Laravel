@@ -24,7 +24,9 @@
         <td>
           <a href="{{ route('posts.show',['post' => $post['id']]) }}" class="btn btn-info" style="margin-bottom: 20px;">View</a>
           <a href="{{ route('posts.edit',['post' => $post['id']])  }}" class="btn btn-primary" style="margin-bottom: 20px;">Edit</a>
-          <button type="button" class="btn btn-danger" style="margin-bottom: 20px;">Delete</button>
+          {{-- <a href="{{ route('posts.delete',['post' => $post['id']])  }}" class="btn btn-danger" style="margin-bottom: 20px;">Delete</a> --}}
+
+
         </td>
       </tr>
     @endforeach
