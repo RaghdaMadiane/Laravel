@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Http\Requests\StorePostRequest;
 
 
 use Illuminate\Http\Request;
@@ -42,7 +43,7 @@ class PostController extends Controller
             'users' => User::all()
         ]);
     }
-    public function update($postId, Request $request)
+    public function update($postId, StorePostRequest $request)
     {
         $requestData= $request->all();
 
@@ -55,7 +56,7 @@ class PostController extends Controller
         return redirect()->route('posts.index');
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         $requestData= $request->all();
         Post::create($requestData);

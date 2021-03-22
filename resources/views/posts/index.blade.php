@@ -20,7 +20,7 @@
         <th scope="row">{{ $post->id }}</th>
         <td>{{ $post->title }}</td>
         <td>{{ $post->user ? $post->user->name : 'user not found' }}</td>
-        <td>{{ \Carbon\Carbon::parse( $post->created_at,'d/m/Y H:i:s')->isoFormat('Y-m-d') }}</td>
+        <td>{{ \Carbon\Carbon::parse( $post->created_at)->isoFormat('Y-M-D') }}</td>
         <td>
           <a href="{{ route('posts.show',['post' => $post->id]) }}" class="btn btn-info" style="margin-bottom: 20px;">View</a>
           <a href="{{ route('posts.edit',['post' => $post->id])  }}" class="btn btn-primary" style="margin-bottom: 20px;">Edit</a>

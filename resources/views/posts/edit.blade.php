@@ -3,6 +3,15 @@
 @section('title') edit Page @endsection
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form method="Post" action="{{route('posts.update',['post'=> $post['id']])}}">
     @csrf
     <input type="hidden" name="_method" value="PUT">
