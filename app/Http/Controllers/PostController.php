@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use Illuminate\Support\Str;
 
 
 
@@ -60,8 +61,12 @@ class PostController extends Controller
 
     public function store(StorePostRequest $request)
     {
+        $slug = Str::slug($request->title, '-');
+        // $post = Post::where('slug', $slug)->firstOrFail();
+        // $post = Post::whereSlug($slug)->get();
         $requestData= $request->all();
         Post::create($requestData);
+
         return redirect()->route('posts.index');
     }
     public function destroy($postId)

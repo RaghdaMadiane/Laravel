@@ -12,6 +12,7 @@
         <th scope="col">Posted By</th>
         <th scope="col">Created At</th>
         <th scope="col">Actions</th>
+        <th scope="col">slug</th>
       </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
         <td>{{ $post->title }}</td>
         <td>{{ $post->user ? $post->user->name : 'user not found' }}</td>
         <td>{{ \Carbon\Carbon::parse( $post->created_at)->isoFormat('Y-M-D') }}</td>
+
         <td>
           <a href="{{ route('posts.show',['post' => $post->id]) }}" class="btn btn-info" style="margin-bottom: 20px;">View</a>
           <a href="{{ route('posts.edit',['post' => $post->id])  }}" class="btn btn-primary" style="margin-bottom: 20px;">Edit</a>
@@ -30,6 +32,7 @@
             <button onclick="return confirm('Are you sure?')"  class="btn btn-danger" type="submit" style="margin-bottom: 20px;">Delete</button>
             </form>
         </td>
+        <td>{{$post->slug}}</td>
       </tr>
     @endforeach
     </tbody>
