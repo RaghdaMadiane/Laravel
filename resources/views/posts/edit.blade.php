@@ -17,12 +17,12 @@
     <input type="hidden" name="_method" value="PUT">
       <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" name="title" class="form-control" id="title" aria-describedby="emailHelp">
+      <input type="text" name="title" class="form-control" id="title"  placeholder="{{$post->title}}">
 
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea class="form-control" name="description" id="description"></textarea>
+      <textarea class="form-control" name="description" id="description" placeholder="{{$post->description}}"></textarea>
 
     </div>
     <div class="form-group">
@@ -33,10 +33,10 @@
           @endforeach
         </select>
       </div>
-      <div class="form-group">
+      {{-- <div class="form-group">
         <label for="slug">Slug</label>
         <input type="text" name="slug" class="form-control" value="{{ old('slug') }}" placeholder="post-slug">
-    </div>
+    </div> --}}
     <button type="submit" class="btn btn-primary">update Post</button>
   </form>
 

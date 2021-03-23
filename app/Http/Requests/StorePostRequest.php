@@ -30,9 +30,9 @@ class StorePostRequest extends FormRequest
             'title' => ['required',
              'min:3' ,
              Rule::unique('posts', 'title')->ignore($this->post)],
-             'slug' => ['required',
-             'min:3' ,
-             Rule::unique('posts', 'slug')->ignore($this->post)],
+            //  'slug' => ['required',
+            //  'min:3' ,
+            //  Rule::unique('posts', 'slug')->ignore($this->post)],
             'description' => ['required', 'min:10'],
             'user_id' => ['exists:users,id']
         ];
