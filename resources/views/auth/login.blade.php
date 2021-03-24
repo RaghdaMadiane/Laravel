@@ -53,9 +53,16 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <a href="/auth/redirect"class="btn btn-primary btn-dark">
+                                    {{ __('Login with github') }}
+                                </a>
+                                <a href="/auth/redirect/google"  class="btn btn-primary btn-dark ">
+                                    {{ __('Login with google+') }}
+                                </a><br>
+                                <button type="submit" class="btn btn-primary mt-2">
                                     {{ __('Login') }}
                                 </button>
+
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
